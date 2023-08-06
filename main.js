@@ -1,4 +1,3 @@
-// Función para calcular el coste total del viaje
 function calcularCoste() {
     const nochesHotel = parseInt(document.getElementById('noches').value);
     const ciudadSeleccionada = document.getElementById('ciudad').value;
@@ -12,12 +11,12 @@ function calcularCoste() {
     pintarResultado(costeTotal);
 }
 
-// Función para calcular el coste total del hotel
+
 function costeHotel(noches) {
     return noches * 140;
 }
 
-// Función para calcular el coste total del avión
+
 function costeAvion(ciudad, noches) {
     const costesCiudad = {
         barcelona: 90,
@@ -29,32 +28,32 @@ function costeAvion(ciudad, noches) {
     let costeTotalAvion = costesCiudad[ciudad.toLowerCase()] * noches;
 
     if (noches > 3) {
-        costeTotalAvion *= 0.9; // 10% de descuento
+        costeTotalAvion *= 0.9; 
     }
 
     return costeTotalAvion;
 }
 
-// Función para calcular el coste total del alquiler de coche
+
 function costeCoche(dias) {
     let costeTotalCoche = dias * 40;
 
     if (dias >= 7) {
-        costeTotalCoche -= 50; // Descuento de 50€
+        costeTotalCoche -= 50; 
     } else if (dias >= 3) {
-        costeTotalCoche -= 20; // Descuento de 20€
+        costeTotalCoche -= 20; 
     }
 
     return costeTotalCoche;
 }
 
-// Función para pintar el resultado en el DOM
+
 function pintarResultado(costeTotal) {
     const resultadoElement = document.getElementById('resultado');
     resultadoElement.textContent = `Coste: ${costeTotal}€`;
 }
 
-// Agregar un evento para manejar el envío del formulario
+
 const form = document.createElement('form');
 form.style.display = 'flex';
 form.style.flexDirection = 'column';
